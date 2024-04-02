@@ -1,6 +1,6 @@
 module Sierpinski
 
-using Plots, SimpleDrawing
+using Plots, SimpleDrawing, ProgressMeter
 
 import SimpleDrawing: draw
 
@@ -128,12 +128,31 @@ end
 
 export triangle_pic, carpet_pic
 
-function triangle_pic(depth::Int = 5)
+function triangle_pic(depth::Int = 6)
+    @info "Generating triangles to depth $depth"
     T = Triangle()
     TT = children(T, depth)
+    n = length(TT)
+    @info "$n triangles generated"
+    newdraw()
+    P = Progress(n)
+    for x in TT
+        next!(P)
+        draw(x,linewidth=0, color=:lightgray)
+    end
+    finish()
+end
+function carpet_pic(depth::Int = 4)
+    @info "Generating squares to depth $depth"
+    T = Square()
+    TT = children(T, depth)
+    n = length(TT)
+    @info "$n squares generated"
+    P = Progress(n)
     newdraw()
     for x in TT
-        gray_draw(x)
+        next!(P)
+        draw(x,linewidth=0, linecolor=:lightgray, color=:lightgray)
     end
     finish()
 end

@@ -1,4 +1,4 @@
 name = "Sierpinski"
 uuid = "661aad1f-a2e2-4ad8-9508-175fb3ed8a88"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
-version = "0.1.0"
+version = "0.0.0"

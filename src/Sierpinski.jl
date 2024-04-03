@@ -128,6 +128,11 @@ end
 
 export triangle_pic, carpet_pic
 
+"""
+    triangle_pic(depth::Int = 6)
+
+Generate picture of Sierpinski's triangle.
+"""
 function triangle_pic(depth::Int = 6)
     @info "Generating triangles to depth $depth"
     T = Triangle()
@@ -142,6 +147,13 @@ function triangle_pic(depth::Int = 6)
     end
     finish()
 end
+
+
+"""
+    carpet_pic(depth::Int = 4)
+
+Generate picture of Sierpinski's carpet.
+"""
 function carpet_pic(depth::Int = 4)
     @info "Generating squares to depth $depth"
     T = Square()

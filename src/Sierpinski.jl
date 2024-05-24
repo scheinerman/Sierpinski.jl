@@ -150,11 +150,11 @@ end
 
 
 """
-    carpet_pic(depth::Int = 4)
+    carpet_pic(depth::Int = 4; linewidth=1, linecolor=:lightgray, color=:lightgray)
 
 Generate picture of Sierpinski's carpet.
 """
-function carpet_pic(depth::Int = 4)
+function carpet_pic(depth::Int = 4; linewidth=1, linecolor=:lightgray, color=:lightgray)
     @info "Generating squares to depth $depth"
     T = Square()
     TT = children(T, depth)
@@ -164,7 +164,7 @@ function carpet_pic(depth::Int = 4)
     newdraw()
     for x in TT
         next!(P)
-        draw(x,linewidth=0, linecolor=:lightgray, color=:lightgray)
+        draw(x,linewidth=linewidth, linecolor=linecolor, color=color)
     end
     finish()
 end
